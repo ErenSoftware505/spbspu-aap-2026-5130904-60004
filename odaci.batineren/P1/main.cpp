@@ -57,7 +57,7 @@ namespace odaci
 int main()
 {
   int result = 0;
-  int status = odaci::countMax(std::cin, result);
+  const int status = odaci::countMax(std::cin, result);
   if (status == 1)
   {
     std::cerr << "Error: not a sequence\n";
