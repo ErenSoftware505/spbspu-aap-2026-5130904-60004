@@ -7,10 +7,10 @@ namespace odaci
   int countMax(std::istream & in, int & result)
   {
     int value = 0;
-    int maxValue = 0;
+    int max_value = 0;
     int count = 0;
-    bool hasElements = false;
-    bool countOverflow = false;
+    bool has_elements = false;
+    bool count_overflow = false;
     while (in >> value)
     {
       const int next = in.eof() ? std::char_traits< char >::eof() : in.peek();
@@ -22,18 +22,18 @@ namespace odaci
       {
         break;
       }
-      if (!hasElements || value > maxValue)
+      if (!has_elements || value > max_value)
       {
-        hasElements = true;
-        maxValue = value;
+        has_elements = true;
+        max_value = value;
         count = 1;
-        countOverflow = false;
+        count_overflow = false;
       }
-      else if (value == maxValue)
+      else if (value == max_value)
       {
         if (count == std::numeric_limits< int >::max())
         {
-          countOverflow = true;
+          count_overflow = true;
         }
         else
         {
@@ -45,7 +45,7 @@ namespace odaci
     {
       return 1;
     }
-    if (!hasElements || countOverflow)
+    if (!has_elements || count_overflow)
     {
       return 2;
     }
